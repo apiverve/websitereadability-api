@@ -1,0 +1,82 @@
+openapi: 3.0.4
+info:
+  title: Website Readability
+  description: Website Readability is a simple tool for analyzing the readability of a website. It returns the readability score of the website provided.
+  termsOfService: https://apiverve.com/terms/
+  contact:
+    name: APIVerve Support
+    email: hello@apiverve.com
+    url: https://apiverve.com/contact
+  version: 1.0.9
+externalDocs:
+  description: Learn more about APIVerve
+  url: https://docs.apiverve.com?utm_source=openapi
+servers:
+- url: https://api.apiverve.com/
+paths:
+  /v1/websitereadability:
+    post:
+      summary: Analyze Website Readability
+      description: Website Readability is a simple tool for analyzing the readability of a website. It returns the readability score of the website provided.
+      operationId: websitereadability
+      parameters: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: status
+                  error:
+                    type: string
+                    description: error
+                  data:
+                    type: string
+                    description: data
+              example:
+                status: ok
+                error: 
+                data:
+                  fleschReadingEase: 24.34
+                  fleschReadingEaseText: Very Confusing
+                  fleschKincaidGrade: 19.3
+                  gunningFog: 19.62
+                  colemanLiauIndex: 13.12
+                  smogIndex: 14.37
+                  automatedReadabilityIndex: 22.6
+                  daleChallReadabilityScore: 17
+                  daleChallReadabilityScoreText: average 13th to 15th-grade (college) student
+                  url: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts
+        '401':
+          description: Your request was not authorized, or your API Key was invalid
+        '404':
+          description: Requested resource was not found
+        '500':
+          description: A server error has occured, try again later
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                url:
+                  type: string
+                  description: The URL of the web page to analyze
+                  example: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts
+              required:
+              - url
+              example:
+                url: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header
+security:
+- api_key: []

@@ -1,23 +1,25 @@
 openapi: 3.0.4
 info:
   title: Website Readability
-  description: Website Readability is a simple tool for analyzing the readability of a website. It returns the readability score of the website provided.
+  description: >-
+    Website Readability is a simple tool for analyzing the readability of a
+    website. It returns the readability score of the website provided.
   termsOfService: https://apiverve.com/terms/
   contact:
     name: APIVerve Support
     email: hello@apiverve.com
     url: https://apiverve.com/contact
-  version: 1.0.9
+  version: 1.0.0
 externalDocs:
   description: Learn more about APIVerve
   url: https://docs.apiverve.com?utm_source=openapi
 servers:
-- url: https://api.apiverve.com/
+  - url: https://api.apiverve.com/
 paths:
   /v1/websitereadability:
     post:
       summary: Analyze Website Readability
-      description: Website Readability is a simple tool for analyzing the readability of a website. It returns the readability score of the website provided.
+      description: Analyze the readability of a web page
       operationId: websitereadability
       parameters: []
       responses:
@@ -35,11 +37,11 @@ paths:
                     type: string
                     description: error
                   data:
-                    type: string
+                    type: object
                     description: data
               example:
                 status: ok
-                error: 
+                error: null
                 data:
                   fleschReadingEase: 24.34
                   fleschReadingEaseText: Very Confusing
@@ -56,7 +58,7 @@ paths:
         '404':
           description: Requested resource was not found
         '500':
-          description: A server error has occured, try again later
+          description: A server error has occurred, try again later
       requestBody:
         required: true
         content:
@@ -67,11 +69,8 @@ paths:
                 url:
                   type: string
                   description: The URL of the web page to analyze
-                  example: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts
               required:
-              - url
-              example:
-                url: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts
+                - url
 components:
   securitySchemes:
     api_key:
@@ -79,4 +78,6 @@ components:
       name: x-api-key
       in: header
 security:
-- api_key: []
+  - api_key: []
+sampleRequest:
+  url: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts

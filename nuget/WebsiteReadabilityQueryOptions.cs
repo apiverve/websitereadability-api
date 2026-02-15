@@ -12,7 +12,6 @@ namespace APIVerve.API.WebsiteReadability
     {
         /// <summary>
         /// The URL of the web page to analyze
-        /// Example: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts
         /// </summary>
         [JsonProperty("url")]
         public string Url { get; set; }

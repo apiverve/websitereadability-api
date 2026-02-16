@@ -225,8 +225,9 @@ from apiverve_websitereadability.apiClient import WebsitereadabilityAPIClient
 
 api = WebsitereadabilityAPIClient("[YOUR_API_KEY]")
 
+query = { "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts" }
+
 try:
-    query = { "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts" }
     result = api.execute(query)
     print(result)
 finally:

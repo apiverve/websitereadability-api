@@ -131,6 +131,11 @@ async function makeRequest() {
     "automatedReadabilityIndex": 22.6,
     "daleChallReadabilityScore": 17,
     "daleChallReadabilityScoreText": "average 13th to 15th-grade (college) student",
+    "wordCount": 634,
+    "sentenceCount": 29,
+    "readingTimeMinutes": 3,
+    "averageGradeLevel": 17.8,
+    "targetAudience": "post-graduate",
     "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts"
   }
 }

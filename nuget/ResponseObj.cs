@@ -25,38 +25,68 @@ namespace APIVerve.API.WebsiteReadability
 
         [JsonProperty("data")]
         public Data Data { get; set; }
+
+        [JsonProperty("premium")]
+        public Premium Premium { get; set; }
     }
 
     public partial class Data
     {
         [JsonProperty("fleschReadingEase")]
-        public double FleschReadingEase { get; set; }
+        public double? FleschReadingEase { get; set; }
 
         [JsonProperty("fleschReadingEaseText")]
         public string FleschReadingEaseText { get; set; }
 
         [JsonProperty("fleschKincaidGrade")]
-        public double FleschKincaidGrade { get; set; }
+        public double? FleschKincaidGrade { get; set; }
 
         [JsonProperty("gunningFog")]
-        public double GunningFog { get; set; }
+        public double? GunningFog { get; set; }
 
         [JsonProperty("colemanLiauIndex")]
-        public double ColemanLiauIndex { get; set; }
+        public double? ColemanLiauIndex { get; set; }
 
         [JsonProperty("smogIndex")]
-        public double SmogIndex { get; set; }
+        public double? SmogIndex { get; set; }
 
         [JsonProperty("automatedReadabilityIndex")]
-        public double AutomatedReadabilityIndex { get; set; }
+        public double? AutomatedReadabilityIndex { get; set; }
 
         [JsonProperty("daleChallReadabilityScore")]
-        public long DaleChallReadabilityScore { get; set; }
+        public long? DaleChallReadabilityScore { get; set; }
 
         [JsonProperty("daleChallReadabilityScoreText")]
         public string DaleChallReadabilityScoreText { get; set; }
 
+        [JsonProperty("wordCount")]
+        public long? WordCount { get; set; }
+
+        [JsonProperty("sentenceCount")]
+        public long? SentenceCount { get; set; }
+
+        [JsonProperty("readingTimeMinutes")]
+        public long? ReadingTimeMinutes { get; set; }
+
+        [JsonProperty("averageGradeLevel")]
+        public double? AverageGradeLevel { get; set; }
+
+        [JsonProperty("targetAudience")]
+        public string TargetAudience { get; set; }
+
         [JsonProperty("url")]
         public Uri Url { get; set; }
+    }
+
+    public partial class Premium
+    {
+        [JsonProperty("message")]
+        public string Message { get; set; }
+
+        [JsonProperty("upgrade_url")]
+        public Uri UpgradeUrl { get; set; }
+
+        [JsonProperty("locked_fields")]
+        public string[] LockedFields { get; set; }
     }
 }

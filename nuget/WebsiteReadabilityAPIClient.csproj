@@ -3,8 +3,8 @@
   <PropertyGroup>
     <TargetFrameworks>net20;net35;net40;net45;netstandard2.0;netstandard2.1;net6.0;net8.0</TargetFrameworks>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Title>WebsiteReadability</Title>
-    <Version>1.2.0</Version>
+    <Title>Website Readability API</Title>
+    <Version>1.2.2</Version>
     <Authors>APIVerve</Authors>
     <Company>APIVerve</Company>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
@@ -12,30 +12,32 @@
 
     <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
     <PackageReadmeFile>Readme.md</PackageReadmeFile>
-    <PackageProjectUrl>https://apiverve.com/marketplace/websitereadability?utm_source=nuget&amp;utm_medium=homepage</PackageProjectUrl>
+    <PackageProjectUrl>https://apiverve.com/marketplace/websitereadability?utm_source=nuget&amp;utm_medium=referral&amp;utm_content=homepage</PackageProjectUrl>
     <SignAssembly>False</SignAssembly>
-    <Description>Website Readability is a simple tool for analyzing the readability of a website. It returns the readability score of the website provided.</Description>
+    <Description>Website Readability analyzes live web pages to score their reading difficulty and educational grade level. It returns Flesch Reading Ease, Flesch-Kincaid grade level, word count, sentence count, and estimated reading time.</Description>
     <RepositoryUrl>https://github.com/apiverve/websitereadability-api</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>website readability;website readability api;website readability tool;website readability software;website readability service;api;rest;http;client;apiverve;wrapper;sdk</PackageTags>
+    <PackageTags>website-readability-api;readability-api;readability-score-api;flesch-reading-ease-test;flesch-kincaid-grade-level;api;rest;http;client;apiverve;wrapper;sdk</PackageTags>
     <Copyright>©2026 APIVerve. All Rights Reserved</Copyright>
     <ApplicationIcon>favicon.ico</ApplicationIcon>
     <PackageIcon>favicon@128.png</PackageIcon>
     <BaseOutputPath>.\bin</BaseOutputPath>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
     <PackageId>APIVerve.API.WebsiteReadability</PackageId>
     <Nullable>disable</Nullable>
     <LangVersion>latest</LangVersion>
 
-    <!-- SourceLink Support -->
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <!-- Built from a generator checkout, not this repo: its git state would stamp the wrong
+         commit onto RepositoryUrl. -->
+    <EnableSourceLink>false</EnableSourceLink>
+    <EnableSourceControlManagerQueries>false</EnableSourceControlManagerQueries>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
     <!-- Package Release Notes -->
-    <PackageReleaseNotes>Initial release of WebsiteReadability API client. Features include async/await support, automatic retries, custom headers, request logging, and cancellation token support.</PackageReleaseNotes>
+    <PackageReleaseNotes>Website Readability API client for .NET, version 1.2.2. Features include async/await support, automatic retries, custom headers, request logging, and cancellation token support.</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
@@ -69,7 +71,6 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net45'">
